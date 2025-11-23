@@ -1,7 +1,6 @@
 package controlador;
 
 import modelo.Resultado;
-
 import java.util.ArrayList;
 import java.util.List;
 

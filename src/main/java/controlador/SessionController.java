@@ -1,11 +1,9 @@
 package controlador;
 
 import modelo.Usuario;
-
 import java.io.*;
 
 public class SessionController {
-
     private Usuario usuarioActual;
     private static final String ARCHIVO_USUARIO = "usuario.dat";
 
@@ -18,7 +16,7 @@ public class SessionController {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ARCHIVO_USUARIO))) {
             this.usuarioActual = (Usuario) ois.readObject();
         } catch (FileNotFoundException e) {
-            System.out.println("Archivo de usuario no encontrado. Iniciar sin usuario.");
+            System.out.println("Archivo no encontrado");
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error al cargar el usuario: " + e.getMessage());
         }
@@ -34,10 +32,10 @@ public class SessionController {
         }
     }
 
+    //CASO DE PRUEBA 7
     public void registrarUsuario(String u, String p, String n) {
         if (u == null || u.isBlank() || p == null || p.isBlank() || n == null || n.isBlank()) {
-            System.err.println("Datos de registro incompletos");
-            return;
+            throw new IllegalArgumentException("Datos de registro incompletos");
         }
         this.usuarioActual = new Usuario(u, p, n);
         guardarUsuario();

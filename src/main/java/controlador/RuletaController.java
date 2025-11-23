@@ -20,16 +20,13 @@ public class RuletaController {
 
     public void jugar(ApuestaBase apuesta) {
         ruleta.jugar(apuesta);
-
         int saldoDespues = ruleta.getSaldo();
         boolean acierto = ruleta.getUltimoAcierto();
         int numero = ruleta.getUltimoNumero();
         int ganancia = saldoDespues - usuario.getSaldo();
 
         usuario.actualizarSaldo(ganancia);
-
         Resultado res = new Resultado(numero, apuesta, acierto, saldoDespues);
-
         this.repositorio.agregarResultado(res);
     }
 
