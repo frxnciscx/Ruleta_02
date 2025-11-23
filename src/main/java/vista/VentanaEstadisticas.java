@@ -3,8 +3,6 @@ package vista;
 import controlador.ResultadoController;
 import modelo.Estadisticas;
 import modelo.Resultado;
-import modelo.TipoApuesta;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -46,8 +44,8 @@ public class VentanaEstadisticas {
         frame.add(new JLabel(String.valueOf(stats.getRachaMaxima())));
 
         frame.add(new JLabel(" Tipo de Apuesta Mas Jugado:"));
-        TipoApuesta tipo = stats.getTipoMasJugado();
-        frame.add(new JLabel(tipo != null ? tipo.toString() : "N/A"));
+        String tipo = stats.getTipoMasJugado();
+        frame.add(new JLabel(tipo != null ? tipo : "N/A"));
 
         frame.add(new JLabel(""));
         frame.add(new JLabel(""));
