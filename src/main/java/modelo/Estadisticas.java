@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Estadisticas {
-
     private int totalJugadas;
     private int victorias;
     private double porcentajeVictorias;
@@ -28,11 +27,9 @@ public class Estadisticas {
         this.totalJugadas = historial.size();
 
         int rachaActual = 0;
-
         Map<String, Integer> conteoApuestas = new HashMap<>();
 
         for (Resultado res : historial) {
-
             if (res.isAcierto()) {
                 this.victorias++;
                 rachaActual++;
