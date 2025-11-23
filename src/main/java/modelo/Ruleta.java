@@ -39,6 +39,9 @@ public class Ruleta {
         if (apuesta == null) {
             throw new IllegalArgumentException("Apuesta es obligatoria");
         }
+        if (apuesta.getMonto() > this.saldo) {
+            throw new IllegalArgumentException("Saldo insuficiente");
+        }
         this.ultimoNumero = this.girarRuleta();
         this.ultimoColor = this.colorDe(this.ultimoNumero);
         this.ultimoAcierto = apuesta.acierta(this.ultimoNumero, this.ultimoColor);
